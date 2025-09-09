@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator - Simple Web Calculator</title>
+    <meta name="description" content="A simple, responsive calculator application built with HTML, CSS, and JavaScript">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <div class="display">
+                <div class="display-screen" id="display" aria-live="polite" aria-label="Calculator display">0</div>
+            </div>
+            
+            <div class="buttons">
+                <!-- First row: Clear and operations -->
+                <button class="btn btn-clear" onclick="clearDisplay()" aria-label="Clear calculator">C</button>
+                <button class="btn btn-operation" onclick="appendToDisplay('/')" aria-label="Divide">÷</button>
+                <button class="btn btn-operation" onclick="appendToDisplay('*')" aria-label="Multiply">×</button>
+                <button class="btn btn-operation" onclick="deleteLast()" aria-label="Delete last entry">⌫</button>
+                
+                <!-- Second row: Numbers 7, 8, 9 and minus -->
+                <button class="btn btn-number" onclick="appendToDisplay('7')" aria-label="Seven">7</button>
+                <button class="btn btn-number" onclick="appendToDisplay('8')" aria-label="Eight">8</button>
+                <button class="btn btn-number" onclick="appendToDisplay('9')" aria-label="Nine">9</button>
+                <button class="btn btn-operation" onclick="appendToDisplay('-')" aria-label="Subtract">-</button>
+                
+                <!-- Third row: Numbers 4, 5, 6 and plus -->
+                <button class="btn btn-number" onclick="appendToDisplay('4')" aria-label="Four">4</button>
+                <button class="btn btn-number" onclick="appendToDisplay('5')" aria-label="Five">5</button>
+                <button class="btn btn-number" onclick="appendToDisplay('6')" aria-label="Six">6</button>
+                <button class="btn btn-operation" onclick="appendToDisplay('+')" aria-label="Add">+</button>
+                
+                <!-- Fourth row: Numbers 1, 2, 3 and equals (spans 2 rows) -->
+                <button class="btn btn-number" onclick="appendToDisplay('1')" aria-label="One">1</button>
+                <button class="btn btn-number" onclick="appendToDisplay('2')" aria-label="Two">2</button>
+                <button class="btn btn-number" onclick="appendToDisplay('3')" aria-label="Three">3</button>
+                <button class="btn btn-equals" onclick="calculate()" rowspan="2" aria-label="Equals">=</button>
+                
+                <!-- Fifth row: Zero, decimal point -->
+                <button class="btn btn-number btn-zero" onclick="appendToDisplay('0')" aria-label="Zero">0</button>
+                <button class="btn btn-number" onclick="appendToDisplay('.')" aria-label="Decimal point">.</button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Simple Calculator | Built with HTML, CSS & JavaScript</p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
