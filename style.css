@@ -1,0 +1,229 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Calculator container */
+.calculator {
+    background: #2c3e50;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 350px;
+    border: 2px solid #34495e;
+}
+
+/* Display screen */
+.display {
+    background: #1a252f;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #34495e;
+}
+
+.display-screen {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: right;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    line-height: 1.2;
+}
+
+/* Button grid */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 15px;
+    width: 100%;
+}
+
+/* Base button styles */
+.btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    height: 65px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    border-color: #ffffff;
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Number buttons */
+.btn-number {
+    background: #3498db;
+}
+
+.btn-number:hover {
+    background: #2980b9;
+}
+
+/* Operation buttons */
+.btn-operation {
+    background: #e67e22;
+    font-size: 1.6rem;
+}
+
+.btn-operation:hover {
+    background: #d35400;
+}
+
+/* Clear button */
+.btn-clear {
+    background: #e74c3c;
+    font-size: 1.6rem;
+}
+
+.btn-clear:hover {
+    background: #c0392b;
+}
+
+/* Equals button */
+.btn-equals {
+    background: #27ae60;
+    grid-row: span 2;
+    font-size: 1.8rem;
+}
+
+.btn-equals:hover {
+    background: #219a52;
+}
+
+/* Zero button (spans 2 columns) */
+.btn-zero {
+    grid-column: span 2;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    color: white;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .calculator {
+        max-width: 100%;
+        padding: 20px;
+    }
+    
+    .display-screen {
+        font-size: 2rem;
+        min-height: 50px;
+    }
+    
+    .btn {
+        height: 55px;
+        font-size: 1.2rem;
+    }
+    
+    .btn-operation,
+    .btn-clear {
+        font-size: 1.4rem;
+    }
+    
+    .btn-equals {
+        font-size: 1.6rem;
+    }
+    
+    .buttons {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    .display-screen {
+        font-size: 1.8rem;
+    }
+    
+    .btn {
+        height: 50px;
+        font-size: 1.1rem;
+    }
+    
+    .btn-operation,
+    .btn-clear {
+        font-size: 1.2rem;
+    }
+    
+    .btn-equals {
+        font-size: 1.4rem;
+    }
+}
+
+/* Error state */
+.error {
+    color: #e74c3c !important;
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Focus styles for accessibility */
+.btn:focus {
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .calculator {
+        border: 3px solid #ffffff;
+    }
+    
+    .btn {
+        border: 2px solid #ffffff;
+    }
+}
